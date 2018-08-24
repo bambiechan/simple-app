@@ -1,0 +1,25 @@
+<div id="div-song-list" class="col-md-12">
+    <div  class="panel panel-primary" >
+        <div class="panel-heading">
+            <div id="div-search-box" class="container-fluid row">
+                <div class="col-md-6">
+                    <input placeholder="Enter an artist" class="form-control input-md" type="text" ng-model="artistCtrl.searchBox" />
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-success" ng-click="artistCtrl.search()">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li ng-repeat="x in artistCtrl.result">
+                    <section>
+                        {{x.name}}
+                        <p ng-bind-html="x.bio"></p>
+                    </section>
+                    <!-- <a ng-click="artistCtrl.getArtist(x.uri)">{{x.name}}</a> -->
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

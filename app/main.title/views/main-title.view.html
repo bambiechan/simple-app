@@ -1,0 +1,27 @@
+<div id="div-song-list" class="col-md-12">
+        <div  class="panel panel-primary" >
+            <div class="panel-heading">
+                <div id="div-search-box" class="container-fluid row">
+                    <div class="col-md-6">
+                        <input placeholder="Enter a song title" class="form-control input-md" type="text" ng-model="titleCtrl.searchBox" />
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-success" ng-click="titleCtrl.search(titleCtrl.searchBox)">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <ul ng-show="titleCtrl.result.length > 0">
+                    <li ng-repeat="x in titleCtrl.result">
+                        <a ng-click="titleCtrl.openSong(x.id)">{{x.title}}</a>
+                    </li>
+                </ul>
+                <div>
+                    <h3>{{titleCtrl.song.title}}</h3>
+            <div class="div-chords" ng-bind-html="titleCtrl.song.body_chords_html"></div>
+                    
+<div></div>
+                </div>
+            </div>
+        </div>
+    </div>
