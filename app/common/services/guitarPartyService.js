@@ -79,7 +79,7 @@
         }
 
         function getArtists(params){
-            var url = Values.appSettings.API_URL + 'artists/?query=' + params;
+            var url = Values.appSettings.API_URL + '/artists/?query=' + params + ' ';
             return $resource(url, {}, actions).get().$promise;
         }
 

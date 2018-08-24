@@ -20,31 +20,20 @@
         return exports;
 
         function request(config) {
-            numLoadings++;
-            $rootScope.$broadcast(Constants.LOADER_SHOW);
-
             return config || $q.when(config);
         }
 
         function response(data) {
-            if ((--numLoadings) === 0) {
-                $rootScope.$broadcast(Constants.LOADER_HIDE);
-            }
             return data || $q.when(data);
         }
 
         function responseError(error) {
-            if (!(--numLoadings)) {
-                $rootScope.$broadcast(Constants.LOADER_HIDE);
-            }
+			alert('API error');
             return $q.reject(error);
         }
     }
 
     function HttpConfig($httpProvider) {
         $httpProvider.interceptors.push('HttpInterceptor');
-        //$httpProvider.defaults.withCredentials = true; !temp
-
-        // delete $httpProvider.defaults.headers.common["X-Requested-With"];
     }
 })();
